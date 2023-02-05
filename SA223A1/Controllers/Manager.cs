@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using SA223A1.Data;
+using SA223A1.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,9 @@ namespace SA223A1.Controllers
                 // cfg.CreateMap<SourceType, DestinationType>();
                 // cfg.CreateMap<Product, ProductBaseViewModel>();
 
+                cfg.CreateMap<Venue, VenueBaseViewModel>();
+                cfg.CreateMap<VenueAddViewModel, Venue>();
+                cfg.CreateMap<VenueBaseViewModel, VenueEditFormViewModel>();
             });
 
             mapper = config.CreateMapper();
@@ -56,7 +60,58 @@ namespace SA223A1.Controllers
         // Remember to use the suggested naming convention, for example:
         // ProductGetAll(), ProductGetById(), ProductAdd(), ProductEdit(), and ProductDelete().
 
+        public IEnumerable<VenueBaseViewModel> VenueGetAll()
+        {
+            return mapper.Map<IEnumerable<Venue>, IEnumerable<VenueBaseViewModel>>(ds.Venues);
+        }
 
+        public VenueBaseViewModel VenueGetById(int id)
+        {
+            var obj = ds.Venues.Find(id);
 
+            return obj == null ? null : mapper.Map<Venue, VenueBaseViewModel>(obj);
+        }
+
+        public VenueBaseViewModel VenueAdd(VenueAddViewModel newVenue)
+        {
+            var addedItem = ds.Venues.Add(mapper.Map<VenueAddViewModel, Venue>(newVenue));
+            ds.SaveChanges();
+            return addedItem == null ? null : mapper.Map<Venue, VenueBaseViewModel>(addedItem);
+        }
+
+        public VenueBaseViewModel VenueEditContactInfo(VenueEditViewModel Venue)
+        {
+            // Attempt to fetch the object.
+            var obj = ds.Venues.Find(Venue.VenueId);
+            if (obj == null)
+            {
+                // Venue was not found, return null.
+                return null;
+            }
+            else
+            {
+                // Venue was found. Update the entity object
+                // with the incoming values then save the changes.
+                ds.Entry(obj).CurrentValues.SetValues(Venue);
+                ds.SaveChanges();
+                // Prepare and return the object.
+                return mapper.Map<Venue, VenueBaseViewModel>(obj);
+            }
+        }
+
+        public bool VenueDelete(int id)
+        {
+            // Attempt to fetch the object to be deleted
+            var itemToDelete = ds.Venues.Find(id);
+            if (itemToDelete == null)
+                return false;
+            else
+            {
+                // Remove the object
+                ds.Venues.Remove(itemToDelete);
+                ds.SaveChanges();
+                return true;
+            }
+        }
     }
 }

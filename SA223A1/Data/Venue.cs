@@ -11,6 +11,7 @@ namespace SA223A1.Data
     {
         #region Columns
 
+        [Key]
         public int VenueId { get; set; }
 
         [Required]

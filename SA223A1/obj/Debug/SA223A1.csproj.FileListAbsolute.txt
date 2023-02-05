@@ -92,7 +92,6 @@ C:\WEB524\SA223A1\SA223A1\bin\System.Web.Razor.xml
 C:\WEB524\SA223A1\SA223A1\bin\System.Web.WebPages.xml
 C:\WEB524\SA223A1\SA223A1\bin\System.Web.WebPages.Deployment.xml
 C:\WEB524\SA223A1\SA223A1\bin\System.Web.WebPages.Razor.xml
-C:\WEB524\SA223A1\SA223A1\obj\Debug\SA223A1.csproj.AssemblyReference.cache
 C:\WEB524\SA223A1\SA223A1\obj\Debug\SA223A1.csproj.CoreCompileInputs.cache
 C:\WEB524\SA223A1\SA223A1\obj\Debug\SA223A1.csproj.CopyComplete
 C:\WEB524\SA223A1\SA223A1\obj\Debug\Web App Project Template v1.dll

@@ -96,3 +96,4 @@ C:\WEB524\SA223A1\SA223A1\obj\Debug\SA223A1.csproj.CoreCompileInputs.cache
 C:\WEB524\SA223A1\SA223A1\obj\Debug\SA223A1.csproj.CopyComplete
 C:\WEB524\SA223A1\SA223A1\obj\Debug\Web App Project Template v1.dll
 C:\WEB524\SA223A1\SA223A1\obj\Debug\Web App Project Template v1.pdb
+C:\WEB524\SA223A1\SA223A1\obj\Debug\SA223A1.csproj.AssemblyReference.cache

@@ -78,7 +78,7 @@ namespace SA223A1.Controllers
 
         // POST: Venues/Edit/5
         [HttpPost]
-        public ActionResult Edit(int? id, VenueEditFormViewModel model)
+        public ActionResult Edit(int? id, VenueEditViewModel model)
         {
             // Validate the input
             if (!ModelState.IsValid)

@@ -79,10 +79,10 @@ namespace SA223A1.Controllers
             return addedItem == null ? null : mapper.Map<Venue, VenueBaseViewModel>(addedItem);
         }
 
-        public VenueBaseViewModel VenueEditContactInfo(VenueEditViewModel Venue)
+        public VenueBaseViewModel VenueEdit(VenueEditViewModel venue)
         {
             // Attempt to fetch the object.
-            var obj = ds.Venues.Find(Venue.VenueId);
+            var obj = ds.Venues.Find(venue.VenueId);
             if (obj == null)
             {
                 // Venue was not found, return null.
@@ -92,7 +92,7 @@ namespace SA223A1.Controllers
             {
                 // Venue was found. Update the entity object
                 // with the incoming values then save the changes.
-                ds.Entry(obj).CurrentValues.SetValues(Venue);
+                ds.Entry(obj).CurrentValues.SetValues(venue);
                 ds.SaveChanges();
                 // Prepare and return the object.
                 return mapper.Map<Venue, VenueBaseViewModel>(obj);

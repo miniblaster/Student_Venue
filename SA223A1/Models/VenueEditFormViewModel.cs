@@ -7,6 +7,7 @@ namespace SA223A1.Models
 {
     public class VenueEditFormViewModel : VenueEditViewModel
     {
+        public string Company { get; set; }
 
         public string TicketSalePassword { get; set; }
 
